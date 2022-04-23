@@ -1,0 +1,7 @@
+- name: This is main assignment playbook samander abayneh 
+  hosts: linux 
+  roles:
+    - webserver 
+    - system_profile 
+    - users 
+    - datadisk

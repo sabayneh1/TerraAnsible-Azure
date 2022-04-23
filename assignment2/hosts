@@ -1,0 +1,26 @@
+[linux]
+# ansible-c07-vm1
+# ansible-c07-vm2
+linux-centos-vm
+linux-centos-vm1
+
+[windows]
+# ansible-w07-vm1
+terrafrom-w-vm1
+
+[windows:vars]
+ansible_user=n01516507
+ansible_password="Password1010"
+ansible_connection=winrm
+ansible_port=5985
+ansible_winrm_transport=ntlm
+ansible_winrm_cert_validation=ignore
+
+[linux:vars]
+# ansible_python_interpreter=/usr/bin/python3
+use_backend=yum4
+
+
+[os:children]
+linux
+windows

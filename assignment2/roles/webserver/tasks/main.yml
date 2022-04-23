@@ -1,0 +1,50 @@
+
+# tasks file for webserver
+
+- name: install httpd
+  yum:
+    name: httpd 
+    state: present 
+  # notify: restart_httpd
+- name: install mariadb
+  yum:
+    name: mariadb-server
+    state: present
+  notify: restart_mariadb    
+- name: install httpd
+  yum:
+    name: firewalld 
+
+    state: present      
+  notify: restart_firewalld 
+  
+
+- name: Copy files to remote host
+  copy:
+    src: vm1.html
+    dest: /var/www/html/index.html
+    mode: 0444
+    
+
+- name: Copy files to remote host
+  
+  copy:
+    src: vm2.html
+    dest: /var/www/html/index.html
+    mode: 0444  
+
+# - name: allow all access to tcp port 80
+#   firewalld:
+#     port: 80/tcp
+#     zone: public
+#     state: enabled
+
+# - name: allow all access to tcp port 80
+#   firewalld:
+#     port: 443/tcp
+#     zone: public
+#     state: enabled    
+ 
+
+
+  
