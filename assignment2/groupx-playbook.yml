@@ -1,4 +1,4 @@
-- name: This is main assignment playbook samander abayneh 
+- name: This is main assignmetn playbook samander abayneh 
   hosts: linux 
   roles:
     - webserver 
